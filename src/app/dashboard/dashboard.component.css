@@ -20,6 +20,11 @@
   text-align: center;
 }
 
+.mat-card-image {
+  height: 250px;
+  width: 250px;
+}
+
 .example-full-width {
   width: 100%;
 }
