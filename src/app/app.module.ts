@@ -13,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
+//import { MatFormField } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatButtonModule,
     LayoutModule,
     HttpClientModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    //MatFormField,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

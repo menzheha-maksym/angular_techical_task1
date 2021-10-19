@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.getData(1);
+    this.getData(1, this.query);
   }
 
   apiKey = environment.apiKey;
@@ -28,13 +28,22 @@ export class DashboardComponent implements OnInit {
   pageIndex = 0;
   pageLength = 20;
 
-  handlePageEvent(event: PageEvent) {
-    this.pageIndex = event.pageIndex;
-    this.getData(this.pageIndex + 1);
+  handleInputSubmit(event: any) {
+    event.preventDefault();
+
+    if(event.target.searchInput.value) {
+      this.query = event.target.searchInput.value;
+      this.getData(1, this.query);
+    }
   }
 
-  getData(page: number) {
-    this.http.get<any>(`https://newsapi.org/v2/everything?q=${this.query}&from=2021-10-18&sortBy=popularity&pageSize=${this.pageSize}&page=${page}&apiKey=${this.apiKey}`)
+  handlePageEvent(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.getData(this.pageIndex + 1, this.query);
+  }
+
+  getData(page: number, query: string) {
+    this.http.get<any>(`https://newsapi.org/v2/everything?q=${query}&from=2021-10-18&sortBy=popularity&pageSize=${this.pageSize}&page=${page}&apiKey=${this.apiKey}`)
     .subscribe(res => {
       console.log(res);
       this.cards = res.articles;
