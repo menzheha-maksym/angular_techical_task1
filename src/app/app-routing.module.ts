@@ -10,6 +10,10 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   { 
+    path: 'home/:query/:pageIndex', 
+    component: DashboardComponent,
+  },
+  { 
     path: 'home', 
     component: DashboardComponent,
   },

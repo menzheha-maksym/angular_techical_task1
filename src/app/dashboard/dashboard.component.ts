@@ -19,7 +19,14 @@ export class DashboardComponent implements OnInit {
     if(this.route.snapshot.paramMap.get('query')) {
       //@ts-ignore already checking for it to be not null
       this.query = this.route.snapshot.paramMap.get('query');
-      this.getData(1, this.query);     
+      
+      if(this.route.snapshot.paramMap.get('pageIndex')) {
+        //@ts-ignore already checking for it to be not null
+        this.pageIndex = this.route.snapshot.paramMap.get('pageIndex');
+        this.getData(this.pageIndex, this.query);
+      } else {
+        this.getData(1, this.query);
+      }
     } else {
       this.getData(1, this.query);
     }   
@@ -32,7 +39,7 @@ export class DashboardComponent implements OnInit {
   
   query = "Apple";
   pageSize="10";
-  pageIndex = 0;
+  pageIndex = 1;
   pageLength = 20;
 
   handleInputSubmit(event: any) {
@@ -66,6 +73,7 @@ export class DashboardComponent implements OnInit {
       for(let i = 0; i < this.cards.length; i++) {
           this.cards[i].id = i;
           this.cards[i].query = query;
+          this.cards[i].pageindex = page;
       }
     })
   }
@@ -77,6 +85,7 @@ type Card = {
   id: number,
   title: string,
   urlToImage: string,
-  query: string
+  query: string,
+  pageindex: number
 }
 

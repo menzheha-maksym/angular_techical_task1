@@ -24,6 +24,6 @@ export class NewsDetailsComponent implements OnInit {
   }
 
   handleGoBackButtonClick(event: any) {
-    this.router.navigate(['/home', this.details.get('query')]);
+    this.router.navigate(['/home', this.details.get('query'), this.details.get('pageindex')]);
   }
 } 

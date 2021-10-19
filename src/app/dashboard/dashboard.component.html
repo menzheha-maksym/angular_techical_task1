@@ -22,5 +22,5 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-paginator (page)="handlePageEvent($event)" [length]="pageLength" [pageSize]="pageSize" [pageIndex]="pageIndex"></mat-paginator>
+  <mat-paginator (page)="handlePageEvent($event)" [length]="pageLength" [pageSize]="pageSize" [pageIndex]="pageIndex - 1"></mat-paginator>
 </div>
