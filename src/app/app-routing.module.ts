@@ -9,6 +9,10 @@ const routes: Routes = [
     path: 'home/:query', 
     component: DashboardComponent,
   },
+  { 
+    path: 'home', 
+    component: DashboardComponent,
+  },
   { path: ':details', component: NewsDetailsComponent }
 ];
 
