@@ -9,10 +9,10 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
           <img mat-card-image src="{{ card.urlToImage }}">
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
+  <mat-paginator (page)="handlePageEvent($event)" [length]="pageLength" [pageSize]="pageSize" [pageIndex]="pageIndex"></mat-paginator>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.getData();
+    this.getData(1);
   }
 
   apiKey = environment.apiKey;
@@ -22,10 +23,18 @@ export class DashboardComponent implements OnInit {
 
   cards: Card[] = [];
 
-  imgTest = "https://www.pikpng.com/pngl/b/522-5228401_of-front-end-development-was-using-javascript-and.png";
+  query ="Apple";
+  pageSize="10";
+  pageIndex = 0;
+  pageLength = 20;
 
-  getData() {
-    this.http.get<any>(`https://newsapi.org/v2/everything?q=Apple&from=2021-10-18&sortBy=popularity&apiKey=${this.apiKey}`)
+  handlePageEvent(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.getData(this.pageIndex + 1);
+  }
+
+  getData(page: number) {
+    this.http.get<any>(`https://newsapi.org/v2/everything?q=${this.query}&from=2021-10-18&sortBy=popularity&pageSize=${this.pageSize}&page=${page}&apiKey=${this.apiKey}`)
     .subscribe(res => {
       console.log(res);
       this.cards = res.articles;
