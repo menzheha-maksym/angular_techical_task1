@@ -1,4 +1,19 @@
 .mat-card-image {
-    max-width: 350px;
-    max-height: 350px;
+    max-width: 650px;
+    max-height: 650px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem !important;
+}
+
+.go-back-button {
+    margin-bottom: 2rem;
+}
+
+
+.mat-card-title {
+    text-align: center;
+    margin: auto;
 }

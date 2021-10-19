@@ -1,11 +1,11 @@
 <div>
     <h1>Details page</h1>
 
-    <button mat-raised-button (click)="handleGoBackButtonClick($event)">Go back</button>
+    <button class="go-back-button" mat-raised-button (click)="handleGoBackButtonClick($event)">Go back</button>
     
     <mat-card class="card">
         <mat-card-header>
-            <mat-card-title>
+            <mat-card-title class="mat-card-title">
                 {{details.get("title")}}
             </mat-card-title>
         </mat-card-header>
