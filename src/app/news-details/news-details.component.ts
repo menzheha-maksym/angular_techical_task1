@@ -14,13 +14,7 @@ export class NewsDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-
-    console.log(this.route.params);
-
     this.details = this.route.snapshot.paramMap;
-
-    console.log(this.details);
-
   }
 
   handleGoBackButtonClick(event: any) {
