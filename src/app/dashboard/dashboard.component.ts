@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { PageEvent } from '@angular/material/paginator';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     if(this.route.snapshot.paramMap.get('query')) {
@@ -54,6 +54,7 @@ export class DashboardComponent implements OnInit {
   handlePageEvent(event: PageEvent) {
     this.pageIndex = event.pageIndex;
     this.getData(this.pageIndex + 1, this.query);
+    this.router.navigate(['/home', this.query, this.pageIndex + 1]);
   }
 
 
