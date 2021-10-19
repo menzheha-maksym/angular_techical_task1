@@ -15,11 +15,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 //import { MatFormField } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+//import { NewsDetailsComponent } from './news-details/news-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    //NewsDetailsComponent
   ],
   imports: [
     BrowserModule,

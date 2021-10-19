@@ -42,11 +42,23 @@ export class DashboardComponent implements OnInit {
     this.getData(this.pageIndex + 1, this.query);
   }
 
+  handleClickOnImage(event: any) {
+    console.log(event.target.id);
+    console.log(this.cards);
+
+    console.log(this.cards[event.target.id]);
+
+  }
+
   getData(page: number, query: string) {
     this.http.get<any>(`https://newsapi.org/v2/everything?q=${query}&from=2021-10-18&sortBy=popularity&pageSize=${this.pageSize}&page=${page}&apiKey=${this.apiKey}`)
     .subscribe(res => {
       console.log(res);
       this.cards = res.articles;
+
+      for(let i = 0; i < this.cards.length; i++) {
+          this.cards[i].id = i;
+      }
     })
   }
 }
@@ -54,6 +66,7 @@ export class DashboardComponent implements OnInit {
 
 
 type Card = {
+  id: number,
   title: string,
   urlToImage: string
 }
