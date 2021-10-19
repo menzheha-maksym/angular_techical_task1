@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-news-details',
@@ -11,7 +11,7 @@ export class NewsDetailsComponent implements OnInit {
 
   details: any;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
 
@@ -21,5 +21,9 @@ export class NewsDetailsComponent implements OnInit {
 
     console.log(this.details);
 
+  }
+
+  handleGoBackButtonClick(event: any) {
+    this.router.navigate(['/home', this.details.get('query')]);
   }
 } 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { PageEvent } from '@angular/material/paginator';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,18 +13,24 @@ import { PageEvent } from '@angular/material/paginator';
 export class DashboardComponent implements OnInit {
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getData(1, this.query);
+    if(this.route.snapshot.paramMap.get('query')) {
+      //@ts-ignore already checking for it to be not null
+      this.query = this.route.snapshot.paramMap.get('query');
+      this.getData(1, this.query);     
+    } else {
+      this.getData(1, this.query);
+    }   
   }
 
   apiKey = environment.apiKey;
 
-
   cards: Card[] = [];
 
-  query ="Apple";
+  
+  query = "Apple";
   pageSize="10";
   pageIndex = 0;
   pageLength = 20;
@@ -58,6 +65,7 @@ export class DashboardComponent implements OnInit {
 
       for(let i = 0; i < this.cards.length; i++) {
           this.cards[i].id = i;
+          this.cards[i].query = query;
       }
     })
   }
@@ -68,6 +76,7 @@ export class DashboardComponent implements OnInit {
 type Card = {
   id: number,
   title: string,
-  urlToImage: string
+  urlToImage: string,
+  query: string
 }
 
