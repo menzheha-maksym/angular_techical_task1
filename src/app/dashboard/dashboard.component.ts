@@ -59,16 +59,23 @@ export class DashboardComponent implements OnInit {
 
 
   getData(page: number, query: string) {
-    this.http.get<any>(`https://newsapi.org/v2/everything?q=${query}&from=2021-10-18&sortBy=popularity&pageSize=${this.pageSize}&page=${page}&apiKey=${this.apiKey}`)
-    .subscribe(res => {
-      this.cards = res.articles;
+    
+    this.http.get<any>(``)
+    
+    /**
+     * code: "corsNotAllowed"
+     * message: "Requests from the browser are not allowed on the Developer plan, except from localhost."
+     */
+    // this.http.get<any>(`https://newsapi.org/v2/everything?q=${query}&from=2021-10-18&sortBy=popularity&pageSize=${this.pageSize}&page=${page}&apiKey=${this.apiKey}`)
+    // .subscribe(res => {
+    //   this.cards = res.articles;
 
-      for(let i = 0; i < this.cards.length; i++) {
-          this.cards[i].id = i;
-          this.cards[i].query = query;
-          this.cards[i].pageindex = page;
-      }
-    })
+    //   for(let i = 0; i < this.cards.length; i++) {
+    //       this.cards[i].id = i;
+    //       this.cards[i].query = query;
+    //       this.cards[i].pageindex = page;
+    //   }
+    // })
   }
 }
 
