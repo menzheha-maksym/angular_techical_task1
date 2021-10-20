@@ -48,6 +48,7 @@ export class DashboardComponent implements OnInit {
     if(event.target.searchInput.value) {
       this.query = event.target.searchInput.value;
       this.getData(1, this.query);
+      this.router.navigate(['/home', this.query, 1]);
     }
   }
 
