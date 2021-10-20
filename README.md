@@ -1,27 +1,14 @@
-# TestApp1
+Задача: необходимо реализовать Single Page Application на Angular 2+. Приложение должно состоять из таких функциональных частей:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
+1) Страница со списком новостей, можно сформировать мок джейсон с данными https://newsapi.org/ )
+1.1. Необходимо отображать 10 новостей на странице;
+1.2. Внизу каждой страницы должна быть пагинация (pagination) с возможностью перехода на следующую страницу для отображения следующих 10 новостей;
+1.3. Вверху страницы должен быть input элемент с возможностью фильтровать новости по введенному тексту (фильтрация будет вестись по наименованию новости)
+1.4. Каждый блок новости должен состоять как минимум из картинки к новости и ее названия;
+1.5. При клике на картинку должна происходить навигация на страницу новости (описание в пункте 2)
+2) Страница новости
+2.1. На странице новости должна отображаться картинка, название и сам контент новости;
+2.2. Должна быть кнопка, которая позволит вернуться на предыдущую страницу-список (с сохраненной фильтрацией).
+3) Необходимо задеплоить тестовое задание на Github pages или Heroku.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Дизайн Material (с использованием Angular Material библиотеки).
